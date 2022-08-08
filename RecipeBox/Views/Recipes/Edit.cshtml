@@ -21,6 +21,9 @@
     @Html.LabelFor(model => model.Name)
     @Html.EditorFor(model => model.Name)
 
+    @Html.Label("recipe rating 1-10")
+    @Html.EditorFor(model => model.Rating)
+
     @Html.Label("Select category")
     @Html.DropDownList("CategoryId")
 

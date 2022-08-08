@@ -28,7 +28,13 @@ namespace RecipeBox.Controllers
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
       var userRecipes = _db.Recipes.Where(entry => entry.User.Id == currentUser.Id).ToList();
-      return View(userRecipes);
+      var sortedList = userRecipes.OrderByDescending(recipe => recipe.Rating).ToList();
+      return View(sortedList);
+      
+      // var model = _db.Recipes
+      //   .OrderByDescending(recipe => recipe.Rating)
+      //   .ToList();
+      // return View(model);
     }
 
     public ActionResult Create()
