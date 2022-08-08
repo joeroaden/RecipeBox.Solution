@@ -14,6 +14,7 @@ namespace RecipeBox.Models
         public string Ingredient { get; set; }
         public string Instruction { get; set; }
         public virtual ApplicationUser User { get; set; }
+        public int Rating { get; set; }
 
         public virtual ICollection<CategoryRecipe> JoinEntities { get;}
     }
