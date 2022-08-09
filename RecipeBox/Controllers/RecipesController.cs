@@ -31,12 +31,8 @@ namespace RecipeBox.Controllers
       var sortedList = userRecipes.OrderByDescending(recipe => recipe.Rating).ToList();
       return View(sortedList);
       
-      // var model = _db.Recipes
-      //   .OrderByDescending(recipe => recipe.Rating)
-      //   .ToList();
-      // return View(model);
     }
-
+    [Authorize]
     public ActionResult Create()
     {
       ViewBag.CategoryId = new SelectList(_db.Categories, "CategoryId", "Name");
@@ -68,6 +64,7 @@ namespace RecipeBox.Controllers
       return View(thisRecipe);
     }
 
+    [Authorize]
     public ActionResult Edit(int id)
     {
       var thisRecipe = _db.Recipes.FirstOrDefault(recipes => recipes.RecipeId == id);
@@ -86,6 +83,8 @@ namespace RecipeBox.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+    
+    [Authorize]
     public ActionResult AddCategory(int id)
     {
       var thisRecipe = _db.Recipes.FirstOrDefault(recipe => recipe.RecipeId == id);
@@ -103,6 +102,7 @@ namespace RecipeBox.Controllers
       return RedirectToAction("Index");
     }
 
+    [Authorize]
     public ActionResult Delete(int id)
     {
       var thisRecipe = _db.Recipes.FirstOrDefault(recipes => recipes.RecipeId == id);
