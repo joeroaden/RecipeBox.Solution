@@ -18,7 +18,7 @@ namespace RecipeBox.Controllers
     {
       _db = db;
     }
-
+    [Authorize]
     public ActionResult Index()
     {
       List<Category> model = _db.Categories.ToList();
@@ -39,6 +39,7 @@ namespace RecipeBox.Controllers
       return RedirectToAction("Index");
     }
 
+    [Authorize]
     public ActionResult Details(int id)
     {
     var thisCategory = _db.Categories

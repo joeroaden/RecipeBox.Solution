@@ -55,6 +55,7 @@ namespace RecipeBox.Controllers
       return RedirectToAction("Index");
     }
 
+    [Authorize]
     public ActionResult Details(int id)
     {
       var thisRecipe = _db.Recipes
