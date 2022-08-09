@@ -119,12 +119,24 @@ namespace RecipeBox.Controllers
     }
 
     [HttpPost]
-public ActionResult DeleteCategory(int joinId)
-{
-    var joinEntry = _db.CategoryRecipe.FirstOrDefault(entry => entry.CategoryRecipeId == joinId);
-    _db.CategoryRecipe.Remove(joinEntry);
-    _db.SaveChanges();
-    return RedirectToAction("Index");
-}
+    public ActionResult DeleteCategory(int joinId)
+    {
+        var joinEntry = _db.CategoryRecipe.FirstOrDefault(entry => entry.CategoryRecipeId == joinId);
+        _db.CategoryRecipe.Remove(joinEntry);
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+    }
+    // public ActionResult Index(string searchIngredient)
+    // {
+    //   var recipes = _db.Recipes;
+
+    //     if(!string.IsNullOrEmpty(searchIngredient))
+    //     { 
+    //         recipes = recipes.Where(recipe => recipe.Ingredient.Contains(searchIngredient));
+    //   }
+
+    //     return RedirectToAction("Search");
+    // }
   }
 }
+  
