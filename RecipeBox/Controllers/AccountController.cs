@@ -3,6 +3,12 @@ using Microsoft.AspNetCore.Identity;
 using RecipeBox.Models;
 using System.Threading.Tasks;
 using RecipeBox.ViewModels;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace RecipeBox.Controllers
 {
@@ -67,6 +73,22 @@ namespace RecipeBox.Controllers
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index");
+        }
+
+        
+        public ActionResult Details()
+        {
+        // var thisCategory = _db.Categories
+        // .Include(category => category.JoinEntities)
+        // .ThenInclude(join => join.Recipe)
+        // .FirstOrDefault(category => category.CategoryId == id);
+        // return View();
+        // var thisRecipe = _db.Recipes
+        //   .Include(recipe => recipe.JoinEntities)
+        //   .ThenInclude(join => join.Category)
+        //   .FirstOrDefault(recipe => recipe.RecipeId == id);
+      return View();
+
         }
     }
 }
