@@ -7,15 +7,6 @@
 
 <h1>Recipes for @User.Identity.Name</h1>
 
-@using (Html.BeginForm())
-{
-
-@Html.Label("Search by Ingredient:")
-@Html.TextBox("SearchIngredient")
-  <input type="submit" value="Search" />
-}
-
-
 @if (Model.Any())
 {
   <ul>

@@ -1,0 +1,15 @@
+@{
+  Layout = "_Layout";
+}
+
+@using RecipeBox.Models;
+@model IEnumerable<RecipeBox.Models.Recipe>
+
+
+@using (Html.BeginForm())
+{
+
+@Html.Label("Search by Ingredient:")
+@Html.TextBox("SearchIngredient")
+  <input type="submit" value="Search" />
+}

@@ -127,17 +127,18 @@ namespace RecipeBox.Controllers
         _db.SaveChanges();
         return RedirectToAction("Index");
     }
-    // public ActionResult Index(string searchIngredient)
-    // {
-    //   var recipes = _db.Recipes;
+    [HttpGet]
+    public ActionResult Search()
+    {
+        return View();      
+    }
 
-    //     if(!string.IsNullOrEmpty(searchIngredient))
-    //     { 
-    //         recipes = recipes.Where(recipe => recipe.Ingredient.Contains(searchIngredient));
-    //   }
-
-    //     return RedirectToAction("Search");
-    // }
+    [HttpPost]
+    public ActionResult Search(string searchIngredient)
+    {
+      var model = _db.Recipes.Where(p => p.Ingredient.ToLower().Contains(searchIngredient.ToLower()));
+      return View("Index", model);
+    }
   }
 }
   
